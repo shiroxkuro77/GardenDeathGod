@@ -79,4 +79,7 @@ public class GridItem : Entity
     {
         
     }
+    public bool isGrass() {
+        return  gridType == GridType.GRASS;
+    }
 }

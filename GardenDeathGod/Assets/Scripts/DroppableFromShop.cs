@@ -91,4 +91,7 @@ public class DroppableFromShop : MonoBehaviour
         mousePos.z = -Camera.main.transform.position.z;
         return Camera.main.ScreenToWorldPoint(mousePos);
     }
+   
+
+
 }
