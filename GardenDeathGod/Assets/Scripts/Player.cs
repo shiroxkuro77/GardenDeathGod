@@ -101,6 +101,15 @@ public class Player : Entity
                         playerState = PlayerState.IDLE;
                     }
                 }
+
+                // Obstacles
+                if (target as Gravestone)
+                {
+                    if (selectedEntity as Elf)
+                    {
+                        ((Elf)selectedEntity).Handle(target);
+                    }
+                }
             }
         }
     }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EntityUnit : Entity
+public abstract class EntityUnit : Entity
 {
     [Header("Components")]
     [SerializeField]
@@ -30,17 +30,11 @@ public class EntityUnit : Entity
     private int currPosY;
 
     // Start is called before the first frame update
-    private void Start()
+    protected void Start()
     {
         currPosX = startPosX;
         currPosY = startPosY;
         MoveTo(startPosX, startPosY);
-
-        switch (unitType) { 
-            case UnitType.ELF:
-                InitElf();
-                break;
-        }
     }
 
     // Update is called once per frame
@@ -82,24 +76,5 @@ public class EntityUnit : Entity
         return unitType;
     }
 
-    public void ExecuteBehaviour()
-    {
-        switch(unitType)
-        {
-            case UnitType.ELF:
-                ElfBehaviour();
-                break;
-        }
-    }
-
-    private void ElfBehaviour()
-    {
-        gridManager.ClaimTileAt(owner, currPosX, currPosY);
-        ((Elf)this).DoAfterMove();
-    }
-
-    private void InitElf()
-    {
-        gridManager.ClaimTileAt(owner, currPosX, currPosY);
-    }
+    public abstract void ExecuteBehaviour();
 }

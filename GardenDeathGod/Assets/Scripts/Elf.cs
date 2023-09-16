@@ -16,8 +16,40 @@ public class Elf : EntityUnit
         Vector3Int.down + Vector3Int.left
     };
 
+    [Header("Sprites")]
+    [SerializeField]
+    private SpriteRenderer spriteRenderer;
+    [SerializeField]
+    private Sprite elfDestroy;
+    [SerializeField]
+    private Sprite elfNormal;
+
+
+    private new void Start()
+    {
+        base.Start();
+        gridManager.ClaimTileAt(owner, GetPosX(), GetPosY());
+    }
+
+    public override void ExecuteBehaviour()
+    {
+        gridManager.ClaimTileAt(owner, GetPosX(), GetPosY());
+        DoAfterMove();
+    }
+
+    public void Handle(Entity target)
+    {
+        if (target as Gravestone)
+        {
+            spriteRenderer.sprite = elfDestroy;
+            Destroy(target.gameObject);
+        }
+    }
+
     public void DoAfterMove()
     {
+        spriteRenderer.sprite = elfNormal;
+        /*
         for (int i = 0; i < neighbourPositions.Length; i++) {
 
             EntityUnit unit = gridManager.GetEntityAt(GetPosX() + neighbourPositions[i].x, GetPosY() + neighbourPositions[i].y);
@@ -29,6 +61,6 @@ public class Elf : EntityUnit
                     Destroy(unit.gameObject);
                 }
             }
-        }
+        }*/
     }
 }
