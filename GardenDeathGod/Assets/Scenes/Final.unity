@@ -417,10 +417,18 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 580551026}
+    - target: {fileID: 64024615283323712, guid: fca1510fdd21e4669885ea5ee9708092, type: 3}
+      propertyPath: gridManager
+      value: 
+      objectReference: {fileID: 1778664141}
     - target: {fileID: 608485435912932305, guid: fca1510fdd21e4669885ea5ee9708092, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 580551026}
+    - target: {fileID: 608485435912932305, guid: fca1510fdd21e4669885ea5ee9708092, type: 3}
+      propertyPath: gridManager
+      value: 
+      objectReference: {fileID: 1778664141}
     - target: {fileID: 976900768602907606, guid: fca1510fdd21e4669885ea5ee9708092, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -465,13 +473,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1794011616570081664, guid: fca1510fdd21e4669885ea5ee9708092, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2073615985442420540, guid: fca1510fdd21e4669885ea5ee9708092, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 580551026}
+    - target: {fileID: 2073615985442420540, guid: fca1510fdd21e4669885ea5ee9708092, type: 3}
+      propertyPath: gridManager
+      value: 
+      objectReference: {fileID: 1778664141}
     - target: {fileID: 2419724893938051714, guid: fca1510fdd21e4669885ea5ee9708092, type: 3}
       propertyPath: m_Name
       value: ShopBox
+      objectReference: {fileID: 0}
+    - target: {fileID: 2477936403034349184, guid: fca1510fdd21e4669885ea5ee9708092, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fca1510fdd21e4669885ea5ee9708092, type: 3}
@@ -1057,7 +1077,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1277897321}
   - component: {fileID: 1277897322}
-  - component: {fileID: 1277897323}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1103,19 +1122,6 @@ MonoBehaviour:
   selectedEntity: {fileID: 0}
   gridManager: {fileID: 1778664141}
   units: []
---- !u!65 &1277897323
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1277897319}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1505987100 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: -1286675819257709033, guid: 882616d2d0750413783b82d4bae5cc89, type: 3}

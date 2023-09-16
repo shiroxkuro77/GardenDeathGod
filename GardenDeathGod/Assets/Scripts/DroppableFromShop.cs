@@ -48,20 +48,22 @@ public class DroppableFromShop : MonoBehaviour
         // Check for mouse button release
         if (Input.GetMouseButtonUp(0))
         {
-            if (player.isMyTurn) {
+            if (player.isMyTurn && currentDraggableObject) {
                 isDragging = false;
 
                 RaycastHit2D hit;
 
-                hit = Physics2D.Raycast(new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y), Vector2.zero, 0f);
+                hit = Physics2D.Raycast(new Vector2(currentDraggableEntity.transform.position.x, currentDraggableEntity.transform.position.y), Vector2.zero, Mathf.Infinity);
 
                 if (hit.collider != null)
-                {
+                {   
                     GridItem tile = hit.transform.GetComponent<GridItem>();
                     if (tile)
                     {
+                        currentDraggableEntity.SetOwner(player);
                         currentDraggableEntity.MoveTo(tile.GetX(), tile.GetY());
                         currentDraggableEntity.Init();
+                        currentDraggableEntity.GetComponent<Collider2D>().enabled = true;
                     }
                 }
 
@@ -75,10 +77,9 @@ public class DroppableFromShop : MonoBehaviour
     {
         // Instantiate a new draggable object at the mouse position
         Vector3 spawnPosition = GetMouseWorldPosition();
+        spawnPosition.z = -2;
         currentDraggableObject = Instantiate(draggableObjectPrefab, spawnPosition, Quaternion.identity);
         currentDraggableEntity = currentDraggableObject.GetComponent<EntityUnit>();
-        Debug.Log(currentDraggableEntity);
-        currentDraggableEntity.SetOwner(player);
         currentDraggableEntity.SetGridManager(gridManager);
 
         isDragging = true;

@@ -93,6 +93,8 @@ public class Player : Entity
             {
                 Entity target = hit.collider.gameObject.GetComponent<Entity>();
 
+                Debug.Log(target);
+
                 // Move to tile
                 if (target as GridItem)
                 {
