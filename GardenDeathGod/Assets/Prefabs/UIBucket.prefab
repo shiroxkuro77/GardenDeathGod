@@ -130,6 +130,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6f5160a83318423da05c4501fbf046c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pointCost: 25
+  player: {fileID: 0}
   draggableObjectPrefab: {fileID: 6310879265719230308, guid: 7d21d4fd5efcc4a6cbde6ff5bb1b977c, type: 3}
 --- !u!61 &9114894811766618344
 BoxCollider2D:
