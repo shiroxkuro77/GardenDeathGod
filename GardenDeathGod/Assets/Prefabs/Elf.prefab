@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3761364694050913980}
+  - component: {fileID: -8917548977909573522}
   m_Layer: 0
   m_Name: Elf
   m_TagString: Untagged
@@ -32,6 +33,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-8917548977909573522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 617724167822993595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 513ddad663f61964ba3d28b7944b22e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  owner: {fileID: 0}
+  gridManager: {fileID: 0}
+  unitType: 0
+  startPosX: 0
+  startPosY: 0
+  maxMovementX: 0
+  maxMovementY: 0
+  currPosX: 0
+  currPosY: 0
+  spriteRenderer: {fileID: 4070379646067356099}
+  elfDestroy: {fileID: 21300000, guid: e5ef7ea162574eb46a7012483927716f, type: 3}
+  elfNormal: {fileID: 21300000, guid: 24ecc2a2c4dd94198bf5053dd4a687e7, type: 3}
 --- !u!1 &4607410083663537625
 GameObject:
   m_ObjectHideFlags: 0

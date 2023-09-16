@@ -19,4 +19,9 @@ public abstract class Entity : MonoBehaviour
     {
         return owner;
     }
+
+    public void SetOwner(Entity owner)
+    {
+        this.owner = owner;
+    }
 }

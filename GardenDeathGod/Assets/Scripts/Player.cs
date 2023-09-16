@@ -124,12 +124,7 @@ public class Player : Entity
     // Player mouse click select
     private RaycastHit2D PlayerSelect()
     {
-        RaycastHit2D hit;
-
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        hit = Physics2D.Raycast(new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y), Vector2.zero, 0f);
-
-        return hit;
+        return Physics2D.Raycast(new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y), Vector2.zero, 0f);
     }
 
     public void startTurn() {

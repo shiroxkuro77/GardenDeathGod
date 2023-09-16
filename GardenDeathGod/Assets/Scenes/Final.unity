@@ -505,16 +505,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bb68a202f78ce54ea71dfb730bf888d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 1
-  owner: {fileID: 1862238245}
-  gridManager: {fileID: 1778664141}
-  unitType: 1
-  startPosX: 3
-  startPosY: 3
-  maxMovementX: 0
-  maxMovementY: 0
-  currPosX: 0
-  currPosY: 0
 --- !u!4 &519164164
 Transform:
   m_ObjectHideFlags: 0
@@ -952,6 +942,9 @@ MonoBehaviour:
   maxMovementY: 1
   currPosX: 0
   currPosY: 0
+  spriteRenderer: {fileID: 0}
+  elfDestroy: {fileID: 0}
+  elfNormal: {fileID: 0}
 --- !u!1 &1009794004 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2706187199781098393, guid: a50f57f377faf4831aa85146599d6175, type: 3}
@@ -1071,7 +1064,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1277897321
 Transform:
   m_ObjectHideFlags: 0
@@ -1146,7 +1139,7 @@ GameObject:
   - component: {fileID: 1778664141}
   m_Layer: 0
   m_Name: Grid System
-  m_TagString: Untagged
+  m_TagString: GridManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

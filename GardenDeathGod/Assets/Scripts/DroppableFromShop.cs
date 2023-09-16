@@ -7,10 +7,16 @@ public class DroppableFromShop : MonoBehaviour
 {
     public int pointCost;
     public Player player;
+    public GridManager gridManager;
     public GameObject draggableObjectPrefab; // Reference to the draggable object prefab
     private GameObject currentDraggableObject;
+    private EntityUnit currentDraggableEntity;
     private bool isDragging = false;
     private Vector3 offset;
+
+    public enum DraggableUnitType { DEFAULT, ELF };
+    [SerializeField]
+    private DraggableUnitType draggableUnitType;
 
     void Update()
     {
@@ -44,7 +50,23 @@ public class DroppableFromShop : MonoBehaviour
         {
             if (player.isMyTurn) {
                 isDragging = false;
+
+                RaycastHit2D hit;
+
+                hit = Physics2D.Raycast(new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y), Vector2.zero, 0f);
+
+                if (hit.collider != null)
+                {
+                    GridItem tile = hit.transform.GetComponent<GridItem>();
+                    if (tile)
+                    {
+                        currentDraggableEntity.MoveTo(tile.GetX(), tile.GetY());
+                        currentDraggableEntity.Init();
+                    }
+                }
+
                 currentDraggableObject = null;
+                currentDraggableEntity = null;
             }
         }
     }
@@ -54,6 +76,11 @@ public class DroppableFromShop : MonoBehaviour
         // Instantiate a new draggable object at the mouse position
         Vector3 spawnPosition = GetMouseWorldPosition();
         currentDraggableObject = Instantiate(draggableObjectPrefab, spawnPosition, Quaternion.identity);
+        currentDraggableEntity = currentDraggableObject.GetComponent<EntityUnit>();
+        Debug.Log(currentDraggableEntity);
+        currentDraggableEntity.SetOwner(player);
+        currentDraggableEntity.SetGridManager(gridManager);
+
         isDragging = true;
         offset = currentDraggableObject.transform.position - GetMouseWorldPosition();
     }

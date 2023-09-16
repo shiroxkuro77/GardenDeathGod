@@ -24,10 +24,8 @@ public class Elf : EntityUnit
     [SerializeField]
     private Sprite elfNormal;
 
-
-    private new void Start()
+    public override void Init()
     {
-        base.Start();
         gridManager.ClaimTileAt(owner, GetPosX(), GetPosY());
     }
 

@@ -37,11 +37,7 @@ public abstract class EntityUnit : Entity
         MoveTo(startPosX, startPosY);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+    public abstract void Init();
 
     public int GetPosX()
     {
@@ -74,6 +70,11 @@ public abstract class EntityUnit : Entity
     public UnitType GetUnitType()
     {
         return unitType;
+    }
+
+    public void SetGridManager(GridManager gridManager)
+    {
+        this.gridManager = gridManager;
     }
 
     public abstract void ExecuteBehaviour();
