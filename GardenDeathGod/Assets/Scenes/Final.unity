@@ -732,6 +732,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1915912083}
     - target: {fileID: 967843407005742122, guid: 9e12b9afd7798437fbd535d290b4617d, type: 3}
+      propertyPath: gridManager
+      value: 
+      objectReference: {fileID: 1778664141}
+    - target: {fileID: 967843407005742122, guid: 9e12b9afd7798437fbd535d290b4617d, type: 3}
       propertyPath: playerPoints
       value: 2000
       objectReference: {fileID: 0}
