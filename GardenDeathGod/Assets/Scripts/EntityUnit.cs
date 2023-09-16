@@ -7,17 +7,17 @@ public class EntityUnit : Entity
     [Header("Components")]
     [SerializeField]
     private GridManager gridManager;
-    [SerializeField]
-    private Entity owner;
 
     [Header("Settings")]
     [SerializeField]
     private UnitType unitType;
-    private enum UnitType { ELF };
+    public enum UnitType { ELF, GRAVESTONE };
     [SerializeField]
     private int startPosX;
     [SerializeField]
     private int startPosY;
+
+    [Header("Movement Behaviour")]
     [SerializeField]
     private int maxMovementX;
     [SerializeField]
@@ -69,9 +69,15 @@ public class EntityUnit : Entity
 
     public void MoveTo(int x, int y)
     {
-        transform.position = gridManager.GetPosOfGrid(x, y);
+        Vector3 gridPos = gridManager.GetPosOfGrid(x, y);
+        transform.position = new Vector3(gridPos.x, gridPos.y, transform.position.z);
         currPosX = x;
         currPosY = y;
+    }
+    
+    public UnitType GetUnitType()
+    {
+        return unitType;
     }
 
     public void ExecuteBehaviour()
