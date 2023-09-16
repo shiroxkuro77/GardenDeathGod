@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.ShaderKeywordFilter;
 using UnityEngine;
-using TMPro; 
+using UnityEngine.UI; 
 
 public class Player : MonoBehaviour
 {
-    public TextMeshProUGUI pointText;
+    public Text pointText;
     public TurnSystem turnsystem;
     public int playerPoints;
     public bool isMyTurn = false;
