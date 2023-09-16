@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor.ShaderKeywordFilter;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : Entity
 {
     private enum PlayerState { IDLE, SELECT_UNIT, AWAIT_ACTION, AWAIT_UNIT_MOVE };
     private enum SelectedEntity { TILE, PLAYER_UNIT, ENEMY };
@@ -45,7 +45,7 @@ public class Player : MonoBehaviour
             if (hit.collider != null)
             {
                 selectedEntity = hit.collider.gameObject.GetComponent<Entity>();
-                if (selectedEntity as PlayerUnit) selectedEntityType = SelectedEntity.PLAYER_UNIT;
+                if (selectedEntity as EntityUnit) selectedEntityType = SelectedEntity.PLAYER_UNIT;
                 if (selectedEntity as Enemy) selectedEntityType = SelectedEntity.ENEMY;
                 if (selectedEntity as GridItem) selectedEntityType = SelectedEntity.TILE;
 
@@ -79,10 +79,16 @@ public class Player : MonoBehaviour
                 if (target as GridItem)
                 {
                     GridItem gridItem = (GridItem)target;
-                    PlayerUnit p = selectedEntity as PlayerUnit;
-                    p.MoveTo(gridItem.GetX(), gridItem.GetY());
+                    EntityUnit p = selectedEntity as EntityUnit;
 
-                    playerState = PlayerState.IDLE;
+                    // Check if valid move.
+                    if (Mathf.Abs(gridItem.GetX() - p.GetPosX()) <= p.GetMaxX() && 
+                        Mathf.Abs(gridItem.GetY() - p.GetPosY()) <= p.GetMaxY())
+                    {
+                        p.MoveTo(gridItem.GetX(), gridItem.GetY());
+                        p.ExecuteBehaviour();
+                        playerState = PlayerState.IDLE;
+                    }
                 }
             }
         }

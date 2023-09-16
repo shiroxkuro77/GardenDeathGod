@@ -21,11 +21,13 @@ public class GridManager : MonoBehaviour
 
     [Header("Stats")]
     private GameObject[,] gridInfo;
+    private GridItem[,] gridItems;
 
     // Start is called before the first frame update
     void Awake()
     {
         gridInfo = new GameObject[gridX, gridY];
+        gridItems = new GridItem[gridX, gridY];
 
         for (int x = 0; x < gridX; x++)
         {
@@ -44,6 +46,12 @@ public class GridManager : MonoBehaviour
         }
 
         transform.position = transform.position + gridOffset;
+    }
+
+    public void ClaimTileAt(Entity e, int x, int y)
+    {
+        if (!gridItems[x, y]) gridItems[x, y] = gridInfo[x, y].GetComponent<GridItem>();
+        gridItems[x, y].Claim(e);
     }
 
     public Vector3 GetPosOfGrid(int x, int y)

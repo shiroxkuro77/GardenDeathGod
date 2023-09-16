@@ -42,7 +42,7 @@ public class GridItem : Entity
         return y;
     }
 
-    public void claim(Entity e)
+    public void Claim(Entity e)
     {
         owner = e;
         if (e.GetEntityType() == Entity.EntityType.PLAYER) gridType = GridType.GRASS;
