@@ -2,9 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.ShaderKeywordFilter;
 using UnityEngine;
+using UnityEngine.UI; 
 
 public class Player : Entity
 {
+    public Text pointText;
+    public TurnSystem turnsystem;
+    public int playerPoints;
+    public bool isMyTurn = false;
     private enum PlayerState { IDLE, SELECT_UNIT, AWAIT_ACTION, AWAIT_UNIT_MOVE };
     private enum SelectedEntity { TILE, ENTITY };
     [Header("States")]
@@ -18,11 +23,13 @@ public class Player : Entity
     [Header("Components")]
     [SerializeField]
     private GridManager gridManager;
+    private void Start() {
+        updatePoints(0);
+    }
 
     [Header("Deployed Units")]
     [SerializeField]
     private EntityUnit[] units;
-
     private void Update()
     {
         switch (playerState)
@@ -123,5 +130,22 @@ public class Player : Entity
         hit = Physics2D.Raycast(new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y), Vector2.zero, 0f);
 
         return hit;
+    }
+
+    public void startTurn() {
+        Debug.Log("Player Start Turn");
+        isMyTurn = true;
+    }
+    public void endTurn() {
+        Debug.Log("Player End Turn");
+        isMyTurn = false;
+        turnsystem.ActivateEnemyTurn();
+    }
+
+    public void updatePoints(int addpoints) {
+
+        playerPoints += addpoints;
+        pointText.text = playerPoints.ToString();
+
     }
 }
