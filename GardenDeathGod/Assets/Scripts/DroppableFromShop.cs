@@ -5,6 +5,8 @@ using UnityEngine.EventSystems;
 
 public class DroppableFromShop : MonoBehaviour
 {
+    public int pointCost;
+    public Player player;
     public GameObject draggableObjectPrefab; // Reference to the draggable object prefab
     private GameObject currentDraggableObject;
     private bool isDragging = false;
@@ -14,15 +16,18 @@ public class DroppableFromShop : MonoBehaviour
     {
 
         // Check for left mouse button click
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && player.isMyTurn)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition); // Cast a ray from the mouse position
             RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction); // Perform the raycast
 
             if (hit.collider != null && hit.collider.gameObject == gameObject) // Check if the ray hits the sprite
             {
-                // Handle the collision with the specific object here
-                SpawnNewDraggableObject();
+                if (player.playerPoints >= pointCost) {
+                    // Handle the collision with the specific object here
+                    SpawnNewDraggableObject();
+                    player.updatePoints(-pointCost);
+                }
             }
                     
         }
@@ -37,8 +42,10 @@ public class DroppableFromShop : MonoBehaviour
         // Check for mouse button release
         if (Input.GetMouseButtonUp(0))
         {
-            isDragging = false;
-            currentDraggableObject = null;
+            if (player.isMyTurn) {
+                isDragging = false;
+                currentDraggableObject = null;
+            }
         }
     }
 

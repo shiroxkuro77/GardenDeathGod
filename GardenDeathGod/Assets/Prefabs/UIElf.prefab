@@ -156,4 +156,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6f5160a83318423da05c4501fbf046c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  draggableObjectPrefab: {fileID: 0}
+  pointCost: 500
+  draggableObjectPrefab: {fileID: 617724167822993595, guid: ebee29757e3cd46eeb4f5a65d5091fa5, type: 3}

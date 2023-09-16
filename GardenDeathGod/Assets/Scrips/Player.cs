@@ -2,9 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.ShaderKeywordFilter;
 using UnityEngine;
+using TMPro; 
 
 public class Player : MonoBehaviour
 {
+    public TextMeshProUGUI pointText;
+    public TurnSystem turnsystem;
+    public int playerPoints;
+    public bool isMyTurn = false;
     private enum PlayerState { IDLE, SELECT_UNIT, AWAIT_ACTION, AWAIT_UNIT_MOVE };
     private enum SelectedEntity { TILE, PLAYER_UNIT, ENEMY };
     [Header("States")]
@@ -19,6 +24,9 @@ public class Player : MonoBehaviour
     [SerializeField]
     private GridManager gridManager;
 
+    private void Start() {
+        updatePoints(0);
+    }
     private void Update()
     {
         switch (playerState)
@@ -96,5 +104,22 @@ public class Player : MonoBehaviour
         Physics.Raycast(ray, out hit, Mathf.Infinity);
 
         return hit;
+    }
+
+    public void startTurn() {
+        Debug.Log("Player Start Turn");
+        isMyTurn = true;
+    }
+    public void endTurn() {
+        Debug.Log("Player End Turn");
+        isMyTurn = false;
+        turnsystem.ActivateEnemyTurn();
+    }
+
+    public void updatePoints(int addpoints) {
+
+        playerPoints += addpoints;
+        pointText.text = playerPoints.ToString();
+
     }
 }
