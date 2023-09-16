@@ -77,4 +77,52 @@ public class GridManager : MonoBehaviour
     {
         
     }
+     public int numberOfGrass()
+     {
+    
+        int num = 0;
+
+        //TO DO: Get number of Grass here
+
+         for (int x = 0; x < gridX; x++)
+        {
+            for (int y = 0; y < gridY; y++)
+            {
+                GameObject go = gridInfo[x,y];
+                if (go == null) {
+                    continue;
+                }
+
+                GridItem gridItem = go.GetComponent<GridItem>();
+                if (gridItem.isGrass()) {
+                    num += 1;
+                }
+            }
+        }
+
+        return num * 10;
+    }
+    public int numberOfDeadGrass()
+     {
+        
+        int num = 0;
+
+        for (int x = 0; x < gridX; x++)
+        {
+            for (int y = 0; y < gridY; y++)
+            {
+                GameObject go = gridInfo[x,y];
+                if (go == null) {
+                    continue;
+                }
+
+                GridItem gridItem = go.GetComponent<GridItem>();
+                if (!gridItem.isGrass()) {
+                    num += 1;
+                }
+            }
+        }
+
+        return num * 10;
+    }
 }

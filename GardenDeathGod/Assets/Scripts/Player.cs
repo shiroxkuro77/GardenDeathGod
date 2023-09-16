@@ -132,6 +132,8 @@ public class Player : Entity
     public void startTurn() {
         Debug.Log("Player Start Turn");
         isMyTurn = true;
+        int numOfGrass = gridManager.numberOfGrass();
+        updatePoints(numOfGrass);
     }
     public void endTurn() {
         Debug.Log("Player End Turn");
