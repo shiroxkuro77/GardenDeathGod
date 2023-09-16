@@ -72,9 +72,17 @@ public class GridManager : MonoBehaviour
         return gridInfo[x, y].transform.position;
     }
 
-    // Update is called once per frame
-    void Update()
+    public int numberOfGrass()
     {
-        
+        int num = 0;
+
+        //TO DO: Get number of Grass here
+        return num;
+    }
+    public int numberOfDeadGrass()
+    {
+        int num = 0;
+        //TO DO: Get number of DeadGrass here
+        return num;
     }
 }

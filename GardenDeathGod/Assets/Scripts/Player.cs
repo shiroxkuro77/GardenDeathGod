@@ -19,10 +19,7 @@ public class Player : Entity
     private SelectedEntity selectedEntityType;
     [SerializeField]
     private Entity selectedEntity;
-
-    [Header("Components")]
-    [SerializeField]
-    private GridManager gridManager;
+    public GridManager gridManager;
     private void Start() {
         updatePoints(0);
     }
@@ -126,6 +123,7 @@ public class Player : Entity
     public void startTurn() {
         Debug.Log("Player Start Turn");
         isMyTurn = true;
+        updatePoints(gridManager.numberOfDeadGrass());
     }
     public void endTurn() {
         Debug.Log("Player End Turn");

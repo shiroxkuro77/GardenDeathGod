@@ -68,6 +68,11 @@ public class GridItem : Entity
         return owner;
     }
 
+    public bool isGrass() {
+        return gridType == GridType.GRASS;
+    }
+
+
     // Start is called before the first frame update
     void Start()
     {
