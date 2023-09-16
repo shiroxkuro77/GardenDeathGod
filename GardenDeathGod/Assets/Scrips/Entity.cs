@@ -4,8 +4,13 @@ using UnityEngine;
 
 public abstract class Entity : MonoBehaviour
 {
-    public void ClaimTile(GridManager gm, int x, int y)
+    [Header("Settings")]
+    [SerializeField]
+    private EntityType type;
+    public enum EntityType { PLAYER, ENEMY };
+    
+    public EntityType GetEntityType()
     {
-        gm.Claim(this, x, y);
+        return type;
     }
 }

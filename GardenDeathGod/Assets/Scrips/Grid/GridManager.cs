@@ -21,10 +21,9 @@ public class GridManager : MonoBehaviour
 
     [Header("Stats")]
     private GameObject[,] gridInfo;
-    private GridItem[,] gridInfoScripts;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         gridInfo = new GameObject[gridX, gridY];
 
@@ -47,20 +46,14 @@ public class GridManager : MonoBehaviour
         transform.position = transform.position + gridOffset;
     }
 
+    public Vector3 GetPosOfGrid(int x, int y)
+    {
+        return gridInfo[x, y].transform.position;
+    }
+
     // Update is called once per frame
     void Update()
     {
         
-    }
-
-    public void Claim(Entity e, int x, int y)
-    {
-        if (!gridInfoScripts[x, y]) gridInfoScripts[x, y] = gridInfo[x, y].GetComponent<GridItem>();
-        gridInfoScripts[x, y].claim(e);
-    }
-
-    public GameObject GetGridObjectAt(int x, int y)
-    {
-        return gridInfo[x, y];
     }
 }
