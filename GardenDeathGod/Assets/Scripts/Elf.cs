@@ -4,13 +4,31 @@ using UnityEngine;
 
 public class Elf : EntityUnit
 {
-    public void Handle(EntityUnit unit)
+    private readonly Vector3Int[] neighbourPositions =
     {
-        switch (unit.GetUnitType())
-        {
-            case UnitType.GRAVESTONE:
-                
-                break;
+        Vector3Int.up,
+        Vector3Int.right,
+        Vector3Int.down,
+        Vector3Int.left,
+        Vector3Int.up + Vector3Int.right,
+        Vector3Int.up + Vector3Int.left,
+        Vector3Int.down + Vector3Int.right,
+        Vector3Int.down + Vector3Int.left
+    };
+
+    public void DoAfterMove()
+    {
+        for (int i = 0; i < neighbourPositions.Length; i++) {
+
+            EntityUnit unit = gridManager.GetEntityAt(GetPosX() + neighbourPositions[i].x, GetPosY() + neighbourPositions[i].y);
+            
+            if (unit != null)
+            {
+                if (unit.GetUnitType() == UnitType.GRAVESTONE)
+                {
+                    Destroy(unit.gameObject);
+                }
+            }
         }
     }
 }

@@ -23,10 +23,13 @@ public class Player : Entity
     [Header("Components")]
     [SerializeField]
     private GridManager gridManager;
-
     private void Start() {
         updatePoints(0);
     }
+
+    [Header("Deployed Units")]
+    [SerializeField]
+    private EntityUnit[] units;
     private void Update()
     {
         switch (playerState)
@@ -103,16 +106,6 @@ public class Player : Entity
                         p.MoveTo(gridItem.GetX(), gridItem.GetY());
                         p.ExecuteBehaviour();
                         playerState = PlayerState.IDLE;
-                    }
-                }
-
-                // Has entity on tile
-                EntityUnit unit = (EntityUnit)target;
-                if (unit)
-                {
-                    if (unit.GetOwner() != this)
-                    {
-                        if (selectedEntity as Elf) ((Elf)selectedEntity).Handle(unit);
                     }
                 }
             }

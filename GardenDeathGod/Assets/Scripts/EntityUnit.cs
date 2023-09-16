@@ -6,7 +6,7 @@ public class EntityUnit : Entity
 {
     [Header("Components")]
     [SerializeField]
-    private GridManager gridManager;
+    protected GridManager gridManager;
 
     [Header("Settings")]
     [SerializeField]
@@ -32,6 +32,8 @@ public class EntityUnit : Entity
     // Start is called before the first frame update
     private void Start()
     {
+        currPosX = startPosX;
+        currPosY = startPosY;
         MoveTo(startPosX, startPosY);
 
         switch (unitType) { 
@@ -93,6 +95,7 @@ public class EntityUnit : Entity
     private void ElfBehaviour()
     {
         gridManager.ClaimTileAt(owner, currPosX, currPosY);
+        ((Elf)this).DoAfterMove();
     }
 
     private void InitElf()

@@ -952,6 +952,24 @@ MonoBehaviour:
   maxMovementY: 1
   currPosX: 0
   currPosY: 0
+--- !u!1 &1009794004 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2706187199781098393, guid: a50f57f377faf4831aa85146599d6175, type: 3}
+  m_PrefabInstance: {fileID: 283195032}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1009794007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1009794004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5e1d619a67894fcdbc821e8cf4b6dc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 580551026}
 --- !u!1 &1087620590
 GameObject:
   m_ObjectHideFlags: 0
@@ -1091,6 +1109,7 @@ MonoBehaviour:
   selectedEntityType: 0
   selectedEntity: {fileID: 0}
   gridManager: {fileID: 1778664141}
+  units: []
 --- !u!65 &1277897323
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1197,6 +1216,8 @@ MonoBehaviour:
   owner: {fileID: 0}
   turnsystem: {fileID: 0}
   isMyTurn: 0
+  units: []
+  gridManager: {fileID: 0}
 --- !u!4 &1862238246
 Transform:
   m_ObjectHideFlags: 0
