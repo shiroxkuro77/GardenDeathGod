@@ -22,12 +22,14 @@ public class GridManager : MonoBehaviour
     [Header("Stats")]
     private GameObject[,] gridInfo;
     private GridItem[,] gridItems;
+    private EntityUnit[,] gridEntities;
 
     // Start is called before the first frame update
     void Awake()
     {
         gridInfo = new GameObject[gridX, gridY];
         gridItems = new GridItem[gridX, gridY];
+        gridEntities = new EntityUnit[gridX, gridY];
         
         for (int x = 0; x < gridX; x++)
         {
@@ -46,6 +48,17 @@ public class GridManager : MonoBehaviour
         }
 
         transform.position = transform.position + gridOffset;
+    }
+
+    public void UpdatePosition(int x, int y, EntityUnit entity)
+    {
+        gridEntities[x, y] = entity;
+    }
+
+    public EntityUnit GetEntityAt(int x, int y)
+    {
+        if (!(x > 0 && y > 0 && x < gridX && y < gridY)) return null;
+        return gridEntities[x, y];
     }
 
     public void ClaimTileAt(Entity e, int x, int y)

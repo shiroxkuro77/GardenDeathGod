@@ -10,7 +10,7 @@ public abstract class Entity : MonoBehaviour
     [SerializeField]
     protected Entity owner;
     public enum EntityType { PLAYER, ENEMY };
-    
+
     public EntityType GetEntityType()
     {
         return type;
