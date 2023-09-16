@@ -11,11 +11,13 @@ public class GridManager : MonoBehaviour
 
     [Header("Settings")]
     [SerializeField]
-    private int gridRows;
+    private int gridX;
     [SerializeField]
-    private int gridColumns;
+    private int gridY;
     [SerializeField]
     private int gridSize;
+    [SerializeField]
+    private Vector3 gridOffset;
 
     [Header("Stats")]
     private GameObject[,] gridInfo;
@@ -24,14 +26,16 @@ public class GridManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gridInfo = new GameObject[gridRows, gridColumns];
+        gridInfo = new GameObject[gridX, gridY];
 
-        for (int x = 0; x < gridRows; x++)
+        for (int x = 0; x < gridX; x++)
         {
-            for (int y = 0; y < gridColumns; y++)
+            for (int y = 0; y < gridY; y++)
             {
                 GameObject go = Instantiate(gridObject);
+                go.transform.parent = gameObject.transform;
                 go.transform.position = new Vector3(x * gridSize, y * gridSize, 0);
+                go.name = "[" + x + ", " + y + "]";
 
                 GridItem gridItem = go.GetComponent<GridItem>();
                 gridItem.init(x, y);
@@ -39,6 +43,8 @@ public class GridManager : MonoBehaviour
                 gridInfo[x, y] = go;
             }
         }
+
+        transform.position = transform.position + gridOffset;
     }
 
     // Update is called once per frame
