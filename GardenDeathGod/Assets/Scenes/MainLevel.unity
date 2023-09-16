@@ -323,7 +323,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 1
   owner: {fileID: 1862238245}
-  gridManager: {fileID: 0}
+  gridManager: {fileID: 1768048550}
   unitType: 0
   startPosX: 7
   startPosY: 7
@@ -373,6 +373,63 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1001 &173145374
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 785789907970400920, guid: 5014dd67eeb940b49ad6ee61c51c9961, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 785789907970400920, guid: 5014dd67eeb940b49ad6ee61c51c9961, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 785789907970400920, guid: 5014dd67eeb940b49ad6ee61c51c9961, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 785789907970400920, guid: 5014dd67eeb940b49ad6ee61c51c9961, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 785789907970400920, guid: 5014dd67eeb940b49ad6ee61c51c9961, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 785789907970400920, guid: 5014dd67eeb940b49ad6ee61c51c9961, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 785789907970400920, guid: 5014dd67eeb940b49ad6ee61c51c9961, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 785789907970400920, guid: 5014dd67eeb940b49ad6ee61c51c9961, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 785789907970400920, guid: 5014dd67eeb940b49ad6ee61c51c9961, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 785789907970400920, guid: 5014dd67eeb940b49ad6ee61c51c9961, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 785789907970400920, guid: 5014dd67eeb940b49ad6ee61c51c9961, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 785789907970400922, guid: 5014dd67eeb940b49ad6ee61c51c9961, type: 3}
+      propertyPath: m_Name
+      value: Grid System
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5014dd67eeb940b49ad6ee61c51c9961, type: 3}
 --- !u!1 &221951475
 GameObject:
   m_ObjectHideFlags: 0
@@ -450,7 +507,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 1
   owner: {fileID: 1862238245}
-  gridManager: {fileID: 0}
+  gridManager: {fileID: 1768048550}
   unitType: 0
   startPosX: 5
   startPosY: 5
@@ -548,7 +605,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 1
   owner: {fileID: 1862238245}
-  gridManager: {fileID: 0}
+  gridManager: {fileID: 1768048550}
   unitType: 0
   startPosX: 3
   startPosY: 3
@@ -740,7 +797,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   owner: {fileID: 1277897322}
-  gridManager: {fileID: 0}
+  gridManager: {fileID: 1768048550}
   unitType: 0
   startPosX: 0
   startPosY: 0
@@ -889,7 +946,7 @@ MonoBehaviour:
   playerState: 0
   selectedEntityType: 0
   selectedEntity: {fileID: 0}
-  gridManager: {fileID: 0}
+  gridManager: {fileID: 1768048550}
   units:
   - {fileID: 723770731}
 --- !u!65 &1277897323
@@ -905,6 +962,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1768048550 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 785789907970400923, guid: 5014dd67eeb940b49ad6ee61c51c9961, type: 3}
+  m_PrefabInstance: {fileID: 173145374}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2e1767454e286643807385138f2ae63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1783091284
 GameObject:
   m_ObjectHideFlags: 0
@@ -1026,7 +1094,7 @@ MonoBehaviour:
   - {fileID: 489074911}
   - {fileID: 367350127}
   - {fileID: 136200248}
-  gridManager: {fileID: 0}
+  gridManager: {fileID: 1768048550}
 --- !u!4 &1862238246
 Transform:
   m_ObjectHideFlags: 0
