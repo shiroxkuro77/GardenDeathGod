@@ -33,6 +33,12 @@ public class EntityUnit : Entity
     private void Start()
     {
         MoveTo(startPosX, startPosY);
+
+        switch (unitType) { 
+            case UnitType.ELF:
+                InitElf();
+                break;
+        }
     }
 
     // Update is called once per frame
@@ -78,7 +84,12 @@ public class EntityUnit : Entity
         }
     }
 
-    public void ElfBehaviour()
+    private void ElfBehaviour()
+    {
+        gridManager.ClaimTileAt(owner, currPosX, currPosY);
+    }
+
+    private void InitElf()
     {
         gridManager.ClaimTileAt(owner, currPosX, currPosY);
     }

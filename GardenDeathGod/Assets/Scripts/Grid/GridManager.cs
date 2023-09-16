@@ -28,7 +28,7 @@ public class GridManager : MonoBehaviour
     {
         gridInfo = new GameObject[gridX, gridY];
         gridItems = new GridItem[gridX, gridY];
-
+        
         for (int x = 0; x < gridX; x++)
         {
             for (int y = 0; y < gridY; y++)
