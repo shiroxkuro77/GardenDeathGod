@@ -18,6 +18,8 @@ public class GridManager : MonoBehaviour
     private int gridSize;
     [SerializeField]
     private Vector3 gridOffset;
+    [SerializeField]
+    private GameObject enemy;
 
     [Header("Stats")]
     private GameObject[,] gridInfo;
@@ -46,8 +48,12 @@ public class GridManager : MonoBehaviour
                 gridInfo[x, y] = go;
             }
         }
-
+        Enemy enemybehavior = enemy.GetComponent<Enemy>();
+        enemybehavior.gridX = this.gridX;
+        enemybehavior.gridY = this.gridY;
+        enemybehavior.gridSize = this.gridSize;
         transform.position = transform.position + gridOffset;
+        enemy.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y);
     }
 
     public void UpdatePosition(int x, int y, EntityUnit entity)
