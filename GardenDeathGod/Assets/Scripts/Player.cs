@@ -30,6 +30,11 @@ public class Player : Entity
     [Header("Deployed Units")]
     [SerializeField]
     private EntityUnit[] units;
+
+    [Header("Debug only")]
+    [SerializeField]
+    private GameObject enemygo;
+
     private void Update()
     {
         switch (playerState)
@@ -76,7 +81,11 @@ public class Player : Entity
                     if (selectedEntity as Elf) playerState = PlayerState.AWAIT_UNIT_MOVE;
                 }
                 else
+                {
+                    //Enemy enemy = enemygo.GetComponent<Enemy>(); //For want of an endturn button...
+                    //enemy.startTurn();
                     playerState = PlayerState.SELECT_UNIT;
+                }
                 break;
             case SelectedEntity.TILE:
                 break;

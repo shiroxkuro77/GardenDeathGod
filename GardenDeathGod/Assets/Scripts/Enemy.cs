@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Enemy : Entity
@@ -15,15 +16,20 @@ public class Enemy : Entity
     public void startTurn() {
         Debug.Log("Enemy Start Turn");
         isMyTurn = true;
-        for(int i = 0; i < 10; ++i)
+        System.Random random = new System.Random();
+        for (int i = 0; i < 10; ++i)
         {
-            System.Random random = new System.Random();
             int rx = random.Next(0, gridX);
             int ry = random.Next(0, gridY);
             GameObject go = Instantiate(gravestone);
-            go.transform.parent = gameObject.transform;
-            go.transform.position = new Vector3(rx * gridSize, ry * gridSize, 0);
-            Debug.Log(rx);
+            Gravestone geu = go.GetComponent<Gravestone>();
+            geu.SetOwner(this);
+            //go.transform.parent = gameObject.transform;
+            units.Add(geu);
+            geu.startPosX = rx;
+            geu.startPosY = ry;
+            //go.transform.position = new Vector3(rx * gridSize, ry * gridSize, 0);
+            Debug.Log(units.Count);
         }
         //Insert more actions here
         endTurn();
@@ -35,7 +41,7 @@ public class Enemy : Entity
     }
     [Header("Deployed Units")]
     [SerializeField]
-    private EntityUnit[] units;
+    private List<EntityUnit> units;
 
     [Header("Components")]
     [SerializeField]
@@ -48,7 +54,7 @@ public class Enemy : Entity
 
     private void UpdatePositions()
     {
-        for (int i = 0; i < units.Length; i++)
+        for (int i = 0; i < units.Count; i++)
         {
             gridManager.UpdatePosition(units[i].GetPosX(), units[i].GetPosY(), units[i]);
         }

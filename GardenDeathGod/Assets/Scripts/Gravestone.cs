@@ -11,6 +11,6 @@ public class Gravestone : EntityUnit
 
     public override void Init()
     {
-        throw new System.NotImplementedException();
+        unitType = UnitType.GRAVESTONE;
     }
 }

@@ -10,12 +10,12 @@ public abstract class EntityUnit : Entity
 
     [Header("Settings")]
     [SerializeField]
-    private UnitType unitType;
+    protected UnitType unitType;
     public enum UnitType { ELF, GRAVESTONE };
     [SerializeField]
-    private int startPosX;
+    public int startPosX;
     [SerializeField]
-    private int startPosY;
+    public int startPosY;
 
     [Header("Movement Behaviour")]
     [SerializeField]
